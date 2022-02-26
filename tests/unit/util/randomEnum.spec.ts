@@ -1,7 +1,7 @@
 import { expect } from 'chai'
 import randomEnum from '@/util/randomEnum'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
-import Stratagem from '@/services/enum/Stratagem'
+import CivilizationType from '@/services/enum/CivilizationType'
 
 describe('randomEnum', () => {
   it('int enum', () => {
@@ -11,7 +11,7 @@ describe('randomEnum', () => {
   }),
 
   it('string enum', () => {
-    const value = randomEnum(Stratagem)
+    const value = randomEnum(CivilizationType)
 
     expect(value).not.undefined
   })

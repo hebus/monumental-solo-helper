@@ -3,24 +3,159 @@
   "home": {
     "title": "Monumental Solo Helper",
     "play1": "Play the <b>Automa Module</b> of <a href='https://boardgamegeek.com/boardgame/248125/monumental' target='_blank'><b>Monumental</b></a>.",
-    "play2": "To play the automa module you only need the base game, this helper application replaces the solo cards.",
-    "play3": "The expansion <b>Lost Kingdoms</b> is also supported.",
+    "play2": "To play the Automa module you only need the base game, this helper application replaces the solo cards. You can play against up to 4 bots.",
+    "play3": "The expansion <b>Lost Kingdoms</b> is also supported."
+  },
+  "setup": {
+    "title": "Setup Game",
+    "selectExpansion": {
+      "title": "Select Expansion",
+      "coreBox": "Core Box",
+      "lostKingdoms": "Lost Kingdoms",
+      "africanEmpires": "African Empires"
+    },
+    "difficultyLevel": {
+      "title": "Difficulty Level",
+      "easy": "Easy",
+      "hard": "Hard",
+      "useCards": "Use no advanced action cards | Use 1 advanced action card | Use {count} advanced action cards"
+    },
+    "civilization": {
+      "numberPlayers": "Total number of players",
+      "numberPlayersInfo": "You are the first player, the other players are bots.",
+      "playerCiv": "Your Civilization",
+      "botCiv": "Bot #{number} Civilization",
+      "select": "(select)",
+      "selectDifferentWarning": "Please select {count} different civilizations.",
+      "botMaterial": {
+        "title": "Prepare material for bot | Prepare material for bots",
+        "info1": "Place all units into the bot's city. | Place all units into each bot's city.",
+        "info2": "This application will manage the <b>gold</b>, <b>cultural policies</b> and the <b>Automa card deck</b> of the bots."
+      }
+    }
+  },
+  "roundPlayer": {
+    "title": "Your turn",
+    "info": "Make your turn."
+  },
+  "roundBot": {
+    "title": "Bot | Bot #{bot}",
+    "automaCard": "Automa Card",
+    "culturalPolicies": "Cultural Policies",
+    "goldCost": "Gold cost: {number}.",
+    "nexus": "Nexus",
+    "action": {
+      "complete": "Done",
+      "notPossible": "Not Possible",
+      "choose": "Choose"
+    }
   },
   "notfound": {
     "title": "Not Found"
   },
+  "civilization": {
+    "aksum": "Aksum",
+    "amazons": "Amazons",
+    "atlantis": "Atlantis",
+    "aztecs": "Aztecs",
+    "china": "China",
+    "denmark": "Denmark",
+    "egypt": "Egypt",
+    "greece": "Greece",
+    "japan": "Japan",
+    "mali": "Mail",
+    "mughals": "Mughals",
+    "zulu": "Zulu"
+  },
+  "civilizationType": {
+    "aggressive": "Aggressive",
+    "architectural": "Architectural",
+    "cultural": "Cultural",
+    "economic": "Economic",
+    "technological": "Technological"
+  },
+  "cardAction": {
+    "wonder-complete-acquire-lowest-cost": "Complete 1 <b>Wonder</b>, or acquire a new Wonder with the <i>lowest</i> cost.",
+    "building-lowest-cost": "Take <b>Building</b> with the <i>lowest</i> cost.",
+    "building-highest-cost": "Take <b>Building</b> with the <i>highest</i> cost.",
+    "develop-1-cultural-policy": "Develop 1 <strong>Cultural Policy</strong>.",
+    "develop-1-cultural-policy-2-gold-per-policy": "Develop 1 <strong>Cultural Policy</strong>, and gain 2 Gold for each Cultural Policy.",
+    "explorers-both-move-1-space": "<b>Move both Explorers</b> <i>1 space</i> each, taking all Production and Market tokens.",
+    "explorers-both-move-2-space": "<b>Move both Explorers</b> <i>2 spaces</i> each, taking all Production and Market tokens.",
+    "explorers-both-move-3-space": "<b>Move both Explorers</b> <i>3 spaces</i> each, taking all Production and Market tokens.",
+    "knowledge-take-lowest-cost": "Take <b>Knowledge card</b> with the <i>lowest</i> cost.",
+    "knowledge-take-highest-cost": "Take <b>Knowledge card</b> with the <i>highest</i> cost.",
+    "knowledge-take-all": "Take <b>all available Knowledge cards</b>.",
+    "gain-3-gold": "Gain <b>3 Gold</b>.",
+    "conquer-1-adjacent-lowest-cost": "<b>Conquer</b> an adjacent Province with the <i>lowest</i> cost.",
+    "conquer-1-adjacent-highest-cost": "<b>Conquer</b> an adjacent Province with the <i>highest</i> cost.",
+    "conquer-3-adjacent-highest-cost": "<b>Conquer 3</b> adjacent Provinces with the <i>highest</i> costs.",
+    "shuffle-cards": "Shuffle the Automa's card deck.",
+    "draw-card": "<b>Draw</b> another card.",
+    "choose-action": "<b>Choose Action</b>.",
+    "amazon-gain-mount-2-horses": "Gain <b>2 horses</b> and mount 2 Units on the map (furthest from your capital). Mounted units have +1 Defense.",
+    "atlantis-nexus-place-next-use-all": "Place the next card in the Automa's deck in the <b>Nexus</b>. Then use <i>all cards</i> in the Nexus.",
+    "aztecs-sacrifice-get-gold": "<b>Sacrifice</b> 1 Unit from the Automa's capital to gain 4 Gold. If this is not possible, return 1 sacrificed Soldier to the Capital.",
+    "china-draw-until_technological-action": "<b>Draw cards</b> from the deck until you reach one with a <i>Technological action</i>, and use it.",
+    "denmark-coastal-provinces-gold": "<b>Gain 1 Gold</b> for each <i>coastal Province</i> the Automa controls.",
+    "egypt-draw-card-twice-action-non-special": "Draw another card. Perform its non-specialized actions twice.",
+    "greece-draw-card-get-action-special": "Draw another card. Gain its specialized benefit, regardless of type.",
+    "mughals-draw-next-remove-non-economic": "<b>Reveal</b> the next card of the Automa's deck. If it is <i>not an Economic</i> action, remove it from the game."
+  },
+  "chooseAction": {
+    "japan-civilization": {
+      "1": "If the Automa controls fewer Provinces than an opponent:",
+      "2": "If the Automa has fewer Cultural Policies:",
+      "3": "If neither of these happen:"
+    }
+  },
+  "actionHelp": {
+    "gainDevelopmentCard": {
+      "title": "Gain Development Card",
+      "text": "<p>If Automa gains a card from the Development display, it is placed face up in their play area. The effects of this card never activate, and the card is only considered for scoring.</p><p>If there is ever a choice of which card to gain, the one furthest from the Development deck is chosen. If both cards are an equal distance from the deck, the one whose name begins with the letter closest to the beginning of the alphabet is chosen.</p>"
+    },
+    "buildWonder": {
+      "title": "Build Wonder",
+      "text": "<p>If Automa completes or acquires a new wonder, it always completes a wonder under construction first. When Automa acquires a new wonder, it chooses the one with the lowest cost. Take the Wonder card and place a Wonder Construction token on the first stage.</p><p>When built, the Wonder token is placed on any one of Automa’s available provinces. If there is ever a choice between Provinces, the one with the lowest terrain value is chosen. If there is still a choice, the player to the right of Automa chooses on which one of the Automa’s provinces the token is placed.</p><p>If Automa controls no Provinces or already has Wonders in all of their Provinces, place the Wonder token on Automa’s Capital.</p><p>If there is ever a choice of which card to gain, the one furthest from the Development deck is chosen. If both cards are an equal distance from the deck, the one whose name begins with the letter closest to the beginning of the alphabet is chosen.</p>"
+    },
+    "conquerProvince": {
+      "title": "Conquer Province",
+      "text": "<p>If Automa conquers a Province, take its Warlord from its current location and one Soldier from its Capital and place them both on the conquered province. If Automa has no Soldiers left in its Capital, take and place an Outpost instead. If there are no Soldiers or Outposts in its Capital, then Automa cannot conquer more provinces.</p><p>If there is ever a choice of which Province to conquer, the one with the lowest terrain value is chosen. If there is still a choice, the player to the right of Automa chooses which province Automa conquers.</p><p>If the province has a Barbarian token, reveal it, giving Automa the Gold value printed on it, and then place the token in Automa’s play area. Do the same for Free Town tokens, except Automa gains 2 Gold instead of 1 Culture.</p>"
+    },
+    "moveExplorers": {
+      "title": "Move both Explorers",
+      "text": "<p>The first Explorer moves to an adjacent Province in a direction towards the nearest Market whose token Automa doesn’t already have, and the second Explorer moves to an adjacent Province in a direction towards the second closest. If there are two equally valid choices, the province with a Production token is chosen. If there is still a choice, the player to the right of Automa chooses between the valid Provinces.</p><p>If the province has a Production token, Automa claims this token. Whenever it has 2 Production tokens, these are discarded to gain one Gold. If the Province has a Market, Automa claims the top token, revealing it and gaining Gold equal to the number of resources on the token. For example, if the token shows 4 Military, Automa gains 4 Gold.</p><p>Whenever Automa has a Market token from all Markets on the board, immediately discard all of Automa’s Market tokens, and return both Explorers to their Capital. They may move and collect Market tokens from all Markets again.</p>"
+    }
+  },
+  "gold": {
+    "value": "Gold",
+    "earned": "Gold earned"
+  },
+  "scoring": {
+    "knowledgeCards": "Knowledge Cards",
+    "wonderCards": "Wonder Cards",
+    "culturalPolicies": "Cultural Policies developed",
+    "provinces": "Provinces controlled",
+    "gold": "Gold / 3 (only bots)",
+    "total": "Total VP"
+  },
   "action": {
     "playGame": "Play Game",
     "startGame": "Start Game",
-    "nextRound": "Next Round",
+    "next": "Next",
     "abortGame": "Abort Game",
     "abortGameConfirm": "Aborting the running game - are you sure?",
     "finishGame": "Finish Game",
     "finishGameConfirm": "Finishing this game - are you sure?",
+    "endGame": "End Game",
+    "endGameConfirm": "End this game and return to home screen - are you sure?",
+    "roundResetTurn": "Reset Turn",
+    "roundResetTurnConfirm": "This will reset the current turn - and all subsequent turns and rounds. Are you sure?",
     "cancel": "Cancel",
     "backToHome": "Back to Home",
     "back": "Back",
-    "close": "Close"
+    "close": "Close",
+    "selectCivilization": "Select Civilization"
   },
   "footer": {
     "credits": "Credits"

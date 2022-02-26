@@ -12,7 +12,7 @@
   <p v-html="t('home.play2')"></p>
   <p v-html="t('home.play3')"></p>
 
-  <router-link to="/setup" tag="button" class="btn btn-primary btn-lg mt-3">{{t('action.playGame')}}</router-link>
+  <router-link to="/setup/gameDifficulty" class="btn btn-primary btn-lg mt-3">{{t('action.playGame')}}</router-link>
 
   <p class="disclaimer">
     This is not an official Funforge product and has no affiliation with <a href="https://funforge.fr/" target="_blank">Funforge</a>.
