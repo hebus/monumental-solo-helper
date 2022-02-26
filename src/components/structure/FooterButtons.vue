@@ -57,9 +57,9 @@ export default defineComponent({
     const route = useRoute()
 
     const navigationState = new NavigationState(route, store.state)
-    const scoringView = (route.name=="Scoring")
+    const roundView = (route.name=="RoundPlayer" || route.name=="RoundBot")
 
-    return { t, store, navigationState, scoringView }
+    return { t, store, navigationState, roundView }
   },
   props: {
     endGameButtonType: {
@@ -84,12 +84,12 @@ export default defineComponent({
       document.location.reload()
     },
     endGame() {
-      if (this.scoringView) {
-        this.store.commit('endGame')
-        this.$router.replace("/")
+      if (this.roundView) {
+        this.$router.push("/scoring")
       }
       else {
-        this.$router.push("/scoring")
+        this.store.commit('endGame')
+        this.$router.replace("/")
       }
     }
   }
