@@ -1,20 +1,75 @@
+import * as _ from "lodash"
 import { InjectionKey } from 'vue'
 import { createStore, useStore as baseUseStore, Store } from 'vuex'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'
+import CivilizationName from '@/services/enum/CivilizationName'
+import Expansion from '@/services/enum/Expansion'
+import CardName from '@/services/enum/CardName'
+import toggleArrayItem from '@/util/toggleArrayItem'
+import Action from '@/services/enum/Action'
 
 const LOCALSTORAGE_KEY = process.env.VUE_APP_LOCALSTORAGE_KEY_PREFIX + "store"
 
 export interface State {
-  language: string,
-  baseFontSize: number,
-  setup: Setup,
-  rounds: Round[]
+  language: string
+  baseFontSize: number
+  setup: Setup
+  rounds: Round[],
+  scoring?: ScoringPersistence
 }
 export interface Setup {
-  difficultyLevel: DifficultyLevel,
+  difficultyLevel: DifficultyLevel
+  expansions: Expansion[]
+  civilizations: CivilizationSetup
+}
+export interface CivilizationSetup {
+  numberPlayers: number
+  playerCivilization?: CivilizationName
+  botCivilization: CivilizationName[]
 }
 export interface Round {
-  round: number,
+  round: number
+  bots: BotPersistence[]
+}
+export interface BotPersistence {
+  civilization: CivilizationName
+  cardDeck: CardDeckPersistence
+  gold: number
+  culturalPolicies: number
+  actions: BotCardActionPersistence[],
+  cardsDrawn: CardName[],
+  cardsDrawnForRound: number
+}
+export interface BotCardActionPersistence {
+  cardNumber: number
+  action: Action
+  goldCost : number
+  actionOptions: Action[]
+  completed : boolean
+  skipped: boolean
+  gold : number
+}
+export interface CardDeckPersistence {
+  drawPile : CardName[]
+  discardPile : CardName[]
+  openCards : CardName[]
+  nexusCards : CardName[]
+}
+export interface ScoringPersistence {
+  knowledgeCardCount : number[]
+  wonderCardCount : number[]
+  culturalPolicyCountPlayer : number
+  provinceCount : number[]
+}
+
+export interface RoundBotPayload {
+  round : number
+  botIndex : number
+  bot: BotPersistence
+}
+export interface RoundResetTurnPayload {
+  round : number
+  botIndex : number
 }
 
 declare module '@vue/runtime-core' {
@@ -31,7 +86,13 @@ export const store = createStore<State>({
     language: "en",
     baseFontSize: 1.0,
     setup: {
-      difficultyLevel: DifficultyLevel.EASY
+      difficultyLevel: DifficultyLevel.BEGINNER,
+      expansions: [],
+      civilizations: {
+        numberPlayers: 2,
+        playerCivilization: undefined,
+        botCivilization: []
+      }
     },
     rounds: []
   },
@@ -46,19 +107,47 @@ export const store = createStore<State>({
     language(state : State, language: string) {
       state.language = language
     },
-    setup(state : State, setup: Setup) {
-      state.setup = setup
+    setupToggleExpansionLostKingdoms(state : State) {
+      toggleArrayItem(state.setup.expansions, Expansion.LOST_KINGDOMS)
     },
-    round(state : State, round: Round) {
+    setupToggleExpansionAfricanEmpires(state : State) {
+      toggleArrayItem(state.setup.expansions, Expansion.AFRICAN_EMPIRES)
+    },
+    setupDifficultyLevel(state : State, level: number) {
+      state.setup.difficultyLevel = level
+    },
+    setupCivilizations(state : State, civilizations: CivilizationSetup) {
+      state.setup.civilizations = civilizations
+    },
+    roundBot(state : State, data: RoundBotPayload) {
       // remove round from state if it already exists
-      const existingRound = state.rounds.find(r => r.round==round.round)
-      if (existingRound) {
-        state.rounds.splice(state.rounds.indexOf(existingRound), 1)
+      let round = state.rounds.find(r => r.round==data.round)
+      if (!round) {
+        round = { round: data.round, bots: [] }
+        state.rounds[data.round-1] = round
       }
-      state.rounds.push(round)
+      round.bots[data.botIndex-1] = data.bot
+    },
+    roundResetTurn(state : State, data: RoundResetTurnPayload) {
+      // remove all rounds > the given round
+      _.remove(state.rounds, r => r.round > data.round)
+      const round = state.rounds.find(r => r.round==data.round)
+      if (round) {
+        // remove bot persistence from current and subsequent bots
+        round.bots = round.bots.slice(0, data.botIndex-1)
+      }
+    },
+    scoring(state : State, data: ScoringPersistence) {
+      state.scoring = data
     },
     endGame(state : State) {
+      state.setup.civilizations = {
+        numberPlayers: 2,
+        playerCivilization: undefined,
+        botCivilization: []
+      }
       state.rounds = []
+      state.scoring = undefined
     },
     zoomFontSize(state : State, baseFontSize: number) {
       state.baseFontSize = baseFontSize
