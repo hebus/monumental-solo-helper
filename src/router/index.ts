@@ -26,7 +26,7 @@ const routes: Array<RouteRecordRaw> = [
     component: SetupCivilization
   },
   {
-    path: '/round/:round/player',
+    path: '/round/:round/player/:player',
     name: 'RoundPlayer',
     component: RoundPlayer
   },

@@ -158,7 +158,7 @@ export default defineComponent({
         return '/round/' + this.round + '/bot/' + (this.botIndex+1)
       }
       else {
-        return '/round/' + (this.round+1) + '/player'
+        return '/round/' + (this.round+1) + '/player/1'
       }
     },
     displayedActionsPerCard() : _.Dictionary<[BotCardAction,...BotCardAction[]]> {

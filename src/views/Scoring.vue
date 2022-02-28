@@ -7,13 +7,12 @@
 </template>
 
 <script lang="ts">
+import * as _ from "lodash"
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useRoute } from 'vue-router'
 import { useStore } from '@/store'
 import CivilizationScoring from '@/components/scoring/CivilizationScoring.vue'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
-import NavigationState from '@/util/NavigationState'
 
 export default defineComponent({
   name: 'Scoring',
@@ -23,23 +22,20 @@ export default defineComponent({
   },
   setup() {
     const { t } = useI18n()
-    const route = useRoute()
     const store = useStore()
 
-    const navigationState = new NavigationState(route, store.state)
-    const round = navigationState.round
-    const botCount = navigationState.botCount
-    const civilizationName = navigationState.civilizationName as string
+    const botCount = store.state.setup.civilizations.botCivilization.length
+    const lastRound = _.reduce(store.state.rounds, (max, round) => Math.max(max, round.round), 0)
 
-    return { t, round, botCount, civilizationName }
+    return { t, botCount, lastRound }
   },
   computed: {
-    backButtonRouteTo() : string {
-      if (this.round > 1) {
-        return '/round/' + (this.round-1) + "/bot/" + this.botCount
+    backButtonRouteTo() : string | undefined {
+      if (this.lastRound > 0) {
+        return '/round/' + this.lastRound + "/bot/" + this.botCount
       }
       else {
-        return ''
+        return undefined
       }
     }
   }

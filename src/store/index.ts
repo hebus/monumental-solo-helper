@@ -24,7 +24,8 @@ export interface Setup {
 }
 export interface CivilizationSetup {
   numberPlayers: number
-  playerCivilization?: CivilizationName
+  numberHumanPlayers: number
+  playerCivilization: CivilizationName[]
   botCivilization: CivilizationName[]
 }
 export interface Round {
@@ -43,33 +44,34 @@ export interface BotPersistence {
 export interface BotCardActionPersistence {
   cardNumber: number
   action: Action
-  goldCost : number
+  goldCost: number
   actionOptions: Action[]
-  completed : boolean
+  completed: boolean
   skipped: boolean
-  gold : number
+  gold: number
 }
 export interface CardDeckPersistence {
-  drawPile : CardName[]
-  discardPile : CardName[]
-  openCards : CardName[]
-  nexusCards : CardName[]
+  drawPile: CardName[]
+  discardPile: CardName[]
+  openCards: CardName[]
+  nexusCards: CardName[]
 }
 export interface ScoringPersistence {
-  knowledgeCardCount : number[]
-  wonderCardCount : number[]
-  culturalPolicyCountPlayer : number
-  provinceCount : number[]
+  knowledgeCardCount: number[]
+  wonderCardCount: number[]
+  culturalPolicyCountPlayer: number[]
+  provinceCount: number[],
+  monsterCountPlayer: number[]
 }
 
 export interface RoundBotPayload {
-  round : number
-  botIndex : number
+  round: number
+  botIndex: number
   bot: BotPersistence
 }
 export interface RoundResetTurnPayload {
-  round : number
-  botIndex : number
+  round: number
+  botIndex: number
 }
 
 declare module '@vue/runtime-core' {
@@ -90,7 +92,8 @@ export const store = createStore<State>({
       expansions: [],
       civilizations: {
         numberPlayers: 2,
-        playerCivilization: undefined,
+        numberHumanPlayers: 1,
+        playerCivilization: [],
         botCivilization: []
       }
     },
@@ -143,7 +146,8 @@ export const store = createStore<State>({
     endGame(state : State) {
       state.setup.civilizations = {
         numberPlayers: 2,
-        playerCivilization: undefined,
+        numberHumanPlayers: 1,
+        playerCivilization: [],
         botCivilization: []
       }
       state.rounds = []

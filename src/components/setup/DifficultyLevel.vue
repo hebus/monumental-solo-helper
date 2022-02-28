@@ -8,7 +8,8 @@
     <div class="col-8 col-md-4">
       <input type="range" class="form-range" min="0" max="4" id="difficultyLevel"
           :value="$store.state.setup.difficultyLevel" @input="updateDifficultyLevel($event)">
-      <div class="text-muted">{{t('setup.difficultyLevel.useCards', { count: $store.state.setup.difficultyLevel }, $store.state.setup.difficultyLevel)}}</div>
+      <p class="text-muted">{{t('setup.difficultyLevel.useCards', { count: $store.state.setup.difficultyLevel }, $store.state.setup.difficultyLevel)}}</p>
+      <p class="text-muted">{{t('setup.difficultyLevel.infoModules')}}</p>
     </div>
     <div class="col-1">
       <label for="difficultyLevel" class="form-label">{{t('setup.difficultyLevel.hard')}}</label>

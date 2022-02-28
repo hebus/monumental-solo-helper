@@ -1,9 +1,9 @@
 <template>
-  <h1>{{round}}: {{t('roundPlayer.title')}} <CivilizationIconName :name="civilizationName"/></h1>
+  <h1>{{round}}: {{t('roundPlayer.title', { player: playerIndex }, playerCount )}} <CivilizationIconName :name="civilizationName"/></h1>
 
   <p class="mt-4 mb-4">{{t('roundPlayer.info')}}</p>
 
-  <router-link :to="'/round/' + round + '/bot/1'" class="btn btn-primary btn-lg mt-3">
+  <router-link :to="nextButtonRouteTo" class="btn btn-primary btn-lg mt-3">
     {{t('action.next')}}
   </router-link>
 
@@ -32,18 +32,32 @@ export default defineComponent({
 
     const navigationState = new NavigationState(route, store.state)
     const round = navigationState.round
+    const playerIndex = navigationState.playerIndex
+    const playerCount = navigationState.playerCount
+    const botIndex = navigationState.botIndex
     const botCount = navigationState.botCount
     const civilizationName = navigationState.civilizationName as string
 
-    return { t, round, botCount, civilizationName }
+    return { t, round, playerIndex, playerCount, botIndex, botCount, civilizationName }
   },
   computed: {
-    backButtonRouteTo() : string {
-      if (this.round > 1) {
-        return '/round/' + (this.round-1) + "/bot/" + this.botCount
+    nextButtonRouteTo() : string {
+      if (this.playerIndex < this.playerCount) {
+        return '/round/' + this.round + '/player/' + (this.playerIndex+1)
       }
       else {
-        return ''
+        return '/round/' + this.round + '/bot/1'
+      }
+    },
+    backButtonRouteTo() : string | undefined {
+      if (this.round <= 1 && this.playerIndex <= 1) {
+        return undefined
+      }
+      if (this.playerIndex > 1) {
+        return '/round/' + this.round + "/player/" + (this.playerIndex-1)
+      }
+      else {
+        return '/round/' + (this.round-1) + "/bot/" + this.botCount
       }
     }
   }
