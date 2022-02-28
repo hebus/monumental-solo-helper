@@ -14,29 +14,29 @@
     <tr>
       <th>{{t('scoring.knowledgeCards')}}</th>
       <template v-for="playerIndex in playerCount" :key="playerIndex">
-        <td class="count"><input type="number" min="0" max="99" v-model="knowledgeCardCount[playerIndex-1]" @change="persist"></td>
+        <td class="count"><input type="number" min="0" max="99" v-model="knowledgeCardCount[playerIndex-1]" @change="persist" @focus="inputSelectAll"></td>
         <tdScore :value="knowledgeCardVP[playerIndex-1]" :dominance-value="knowledgeCardDominanceVP[playerIndex-1]"/>
       </template>
       <template v-for="botIndex in botCount" :key="botIndex">
-        <td class="count"><input type="number" min="0" max="99" v-model="knowledgeCardCount[botIndex+playerCount-1]" @change="persist"></td>
+        <td class="count"><input type="number" min="0" max="99" v-model="knowledgeCardCount[botIndex+playerCount-1]" @change="persist" @focus="inputSelectAll"></td>
         <tdScore :value="knowledgeCardVP[botIndex+playerCount-1]" :dominance-value="knowledgeCardDominanceVP[botIndex+playerCount-1]"/>
       </template>
     </tr>
     <tr>
       <th>{{t('scoring.wonderCards')}}</th>
       <template v-for="playerIndex in playerCount" :key="playerIndex">
-        <td class="count"><input type="number" min="0" max="99" v-model="wonderCardCount[playerIndex-1]" @change="persist"></td>
+        <td class="count"><input type="number" min="0" max="99" v-model="wonderCardCount[playerIndex-1]" @change="persist" @focus="inputSelectAll"></td>
         <tdScore :value="wonderCardVP[playerIndex-1]" :dominance-value="wonderCardDominanceVP[playerIndex-1]"/>
       </template>
       <template v-for="botIndex in botCount" :key="botIndex">
-        <td class="count"><input type="number" min="0" max="99" v-model="wonderCardCount[botIndex+playerCount-1]" @change="persist"></td>
+        <td class="count"><input type="number" min="0" max="99" v-model="wonderCardCount[botIndex+playerCount-1]" @change="persist" @focus="inputSelectAll"></td>
         <tdScore :value="wonderCardVP[botIndex+playerCount-1]" :dominance-value="wonderCardDominanceVP[botIndex+playerCount-1]"/>
       </template>
     </tr>
     <tr>
       <th>{{t('scoring.culturalPolicies')}}</th>
       <template v-for="playerIndex in playerCount" :key="playerIndex">
-        <td class="count"><input type="number" min="0" max="99" v-model="culturalPolicyCount[playerIndex-1]" @change="persist"></td>
+        <td class="count"><input type="number" min="0" max="99" v-model="culturalPolicyCount[playerIndex-1]" @change="persist" @focus="inputSelectAll"></td>
         <tdScore :value="culturalPolicyVP[playerIndex-1]" :dominance-value="culturalPolicyDominanceVP[playerIndex-1]"/>
       </template>
       <template v-for="botIndex in botCount" :key="botIndex">
@@ -47,18 +47,18 @@
     <tr>
       <th>{{t('scoring.provinces')}}</th>
       <template v-for="playerIndex in playerCount" :key="playerIndex">
-        <td class="count"><input type="number" min="0" max="99" v-model="provinceCount[playerIndex-1]" @change="persist"></td>
+        <td class="count"><input type="number" min="0" max="99" v-model="provinceCount[playerIndex-1]" @change="persist" @focus="inputSelectAll"></td>
         <tdScore :value="provinceVP[playerIndex-1]" :dominance-value="provinceDominanceVP[playerIndex-1]"/>
       </template>
       <template v-for="botIndex in botCount" :key="botIndex">
-        <td class="count"><input type="number" min="0" max="99" v-model="provinceCount[botIndex+playerCount-1]" @change="persist"></td>
+        <td class="count"><input type="number" min="0" max="99" v-model="provinceCount[botIndex+playerCount-1]" @change="persist" @focus="inputSelectAll"></td>
         <tdScore :value="provinceVP[botIndex+playerCount-1]" :dominance-value="provinceDominanceVP[botIndex+playerCount-1]"/>
       </template>
     </tr>
     <tr>
       <th>{{t('scoring.monster')}}</th>
       <template v-for="playerIndex in playerCount" :key="playerIndex">
-        <td class="count"><input type="number" min="0" max="99" v-model="monsterCount[playerIndex-1]" @change="persist"></td>
+        <td class="count"><input type="number" min="0" max="99" v-model="monsterCount[playerIndex-1]" @change="persist" @focus="inputSelectAll"></td>
         <tdScore :value="monsterCount[playerIndex-1]"/>
       </template>
       <template v-for="botIndex in botCount" :key="botIndex">
@@ -210,6 +210,10 @@ export default defineComponent({
         provinceCount: this.provinceCount,
         monsterCountPlayer: this.monsterCount.slice(0, this.playerCount)
       })
+    },
+    inputSelectAll(event: Event) : void {
+      const input = event.target as HTMLInputElement
+      input.select()
     }
   }
 })

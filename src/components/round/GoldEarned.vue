@@ -1,6 +1,6 @@
 <template>
   <div class="goldEarned" :title="t('gold.earned')">
-    <input type="number" min="0" max="20" v-model="value"/>
+    <input type="number" min="-9" max="20" v-model="value" @focus="inputSelectAll"/>
     <img src="@/assets/coin.png" alt=""/>
   </div>
 </template>
@@ -27,6 +27,12 @@ export default defineComponent({
 
     return { t, value }
   },
+  methods: {
+    inputSelectAll(event: Event) : void {
+      const input = event.target as HTMLInputElement
+      input.select()
+    }
+  }
 })
 </script>
 

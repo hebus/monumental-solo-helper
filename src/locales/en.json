@@ -42,6 +42,7 @@
   "roundBot": {
     "title": "Bot | Bot #{bot}",
     "automaCard": "Automa Card",
+    "automaCardAdvanced": "Advanced Automa Card",
     "culturalPolicies": "Cultural Policies",
     "goldCost": "Gold cost: {number}.",
     "nexus": "Nexus",
