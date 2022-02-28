@@ -2,7 +2,7 @@
   
   <div class="row">
     <div class="col-6">
-      <div v-for="i in bot.cardsDrawn.length" :key="i" class="automa-card" :title="t('roundBot.automaCard')"></div>
+      <div v-for="(card,index) in bot.cardsDrawn" :key="index" class="automa-card" :class="{advanced:card.advanced}" :title="t('roundBot.automaCard' + (card.advanced ? 'Advanced' : ''))"></div>
       <template v-if="bot.nexusCards.length > 0">
         <div class="nexusDivider">{{t('roundBot.nexus')}}:</div> <div v-for="i in bot.nexusCards.length" :key="i" class="automa-card" :title="t('roundBot.automaCard')"></div>
       </template>
@@ -47,17 +47,18 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-6"></div>
+    <div class="col-6">
+      <router-link v-if="!bot.hasMoreActions()" :to="nextButtonRouteTo" class="btn btn-primary btn-lg mt-2">
+        {{t('action.next')}}
+      </router-link>
+    </div>
     <div class="col-2"></div>
     <div class="col-2"></div>
     <div class="col-1 goldTotal">
       <Gold :value="bot.goldTotal"/>
     </div>
   </div>
-  <router-link v-if="!bot.hasMoreActions()" :to="nextButtonRouteTo" class="btn btn-primary btn-lg mt-3">
-    {{t('action.next')}}
-  </router-link>
-
+  
   <div class="modal" id="chooseActionModal" tabindex="-1" v-if="nextAction">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
@@ -158,7 +159,7 @@ export default defineComponent({
         return '/round/' + this.round + '/bot/' + (this.botIndex+1)
       }
       else {
-        return '/round/' + (this.round+1) + '/player'
+        return '/round/' + (this.round+1) + '/player/1'
       }
     },
     displayedActionsPerCard() : _.Dictionary<[BotCardAction,...BotCardAction[]]> {
@@ -227,10 +228,10 @@ export default defineComponent({
 .btn {
   margin-top: -0.25rem;
   margin-right: 0.5rem;
-}
-.btn.not-possible {
-  font-size: x-small;
-  padding: 0.25rem;
+  &.not-possible {
+    font-size: x-small;
+    padding: 0.25rem;
+  }
 }
 .goldCost {
   opacity: 0.4;
@@ -249,6 +250,9 @@ export default defineComponent({
   background-size: cover;
   background-repeat: no-repeat;
   filter: drop-shadow(0.15rem 0.15rem 0.15rem #aaa);
+  &.advanced {
+    filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8) drop-shadow(0.15rem 0.15rem 0.15rem #aaa);
+  }
 }
 .cultural-policy {
   display: inline-block;

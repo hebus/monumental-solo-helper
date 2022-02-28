@@ -18,13 +18,14 @@
       "title": "Difficulty Level",
       "easy": "Easy",
       "hard": "Hard",
-      "useCards": "Use no advanced action cards | Use 1 advanced action card | Use {count} advanced action cards"
+      "useCards": "Use no advanced action cards | Use 1 advanced action card | Use {count} advanced action cards",
+      "infoModules": "You can add the hero or monster module to make the game easier for human players. The bots cannot benefit from them."
     },
     "civilization": {
       "numberPlayers": "Total number of players",
-      "numberPlayersInfo": "You are the first player, the other players are bots.",
-      "playerCiv": "Your Civilization",
-      "botCiv": "Bot #{number} Civilization",
+      "numberHumanPlayers": "Number of human players",
+      "playerCiv": "Player Civilization | Player #{number} Civilization",
+      "botCiv": "Bot Civilization | Bot #{number} Civilization",
       "select": "(select)",
       "selectDifferentWarning": "Please select {count} different civilizations.",
       "botMaterial": {
@@ -35,12 +36,13 @@
     }
   },
   "roundPlayer": {
-    "title": "Your turn",
+    "title": "Player | Player #{player}",
     "info": "Make your turn."
   },
   "roundBot": {
     "title": "Bot | Bot #{bot}",
     "automaCard": "Automa Card",
+    "automaCardAdvanced": "Advanced Automa Card",
     "culturalPolicies": "Cultural Policies",
     "goldCost": "Gold cost: {number}.",
     "nexus": "Nexus",
@@ -132,10 +134,12 @@
     "earned": "Gold earned"
   },
   "scoring": {
+    "playedRounds": "Played rounds: {count}",
     "knowledgeCards": "Knowledge Cards",
     "wonderCards": "Wonder Cards",
     "culturalPolicies": "Cultural Policies developed",
     "provinces": "Provinces controlled",
+    "monster": "Monster (only players)",
     "gold": "Gold / 3 (only bots)",
     "total": "Total VP"
   },

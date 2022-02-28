@@ -3,7 +3,7 @@
 
   <SelectCivilizations @valid="setValid"/>
 
-  <router-link to="/round/1/player" class="btn btn-primary btn-lg mt-3" :class="{disabled: !valid}">
+  <router-link to="/round/1/player/1" class="btn btn-primary btn-lg mt-3" :class="{disabled: !valid}">
     {{t('action.startGame')}}
   </router-link>
 

@@ -6,25 +6,31 @@
     </div>
     <div class="col-md-6">
       <select class="form-select" id="numberPlayers" v-model="numberPlayers" @change="updateNumberPlayers">
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5" v-if="hasFivePlayers">5</option>
+        <option v-for="i in hasFivePlayers ? 4 : 3" :key="i" :value="i+1">{{i+1}}</option>
       </select>
-      <p class="text-muted mt-2">{{t('setup.civilization.numberPlayersInfo')}}</p>
     </div>
   </div>
   <div class="row mt-3">
     <div class="col-md-3 col-xl-2">
-      {{t('setup.civilization.playerCiv')}}
+      <label for="numberHumanPlayers" class="form-label">{{t('setup.civilization.numberHumanPlayers')}}</label>
     </div>
     <div class="col-md-6">
-      <SelectCivilization v-model="playerCivilization" @update:model-value="updatePlayerCivilization"/>
+      <select class="form-select" id="numberHumanPlayers" v-model="numberHumanPlayers" @change="updateNumberPlayers">
+        <option v-for="i in numberPlayers - 1" :key="i" :value="i">{{i}}</option>
+      </select>
     </div>
   </div>
-  <div class="row mt-3" v-for="i in numberPlayers - 1" :key="i">
+  <div class="row mt-3" v-for="i in numberHumanPlayers" :key="i">
     <div class="col-md-3 col-xl-2">
-      {{t('setup.civilization.botCiv', { number: i })}}
+      {{t('setup.civilization.playerCiv', { number: i }, numberHumanPlayers)}}
+    </div>
+    <div class="col-md-6">
+      <SelectCivilization v-model="playerCivilization[i-1]" @update:model-value="updatePlayerCivilization(i)"/>
+    </div>
+  </div>
+  <div class="row mt-3" v-for="i in numberPlayers - numberHumanPlayers" :key="i">
+    <div class="col-md-3 col-xl-2">
+      {{t('setup.civilization.botCiv', { number: i }, numberPlayers-numberHumanPlayers)}}
     </div>
     <div class="col-md-6">
       <SelectCivilization v-model="botCivilization[i-1]" @update:model-value="updateBotCivilization(i)"/>
@@ -71,7 +77,8 @@ export default defineComponent({
   data() {
     return {
       numberPlayers: this.$store.state.setup.civilizations.numberPlayers,
-      playerCivilization: this.$store.state.setup.civilizations.playerCivilization,
+      numberHumanPlayers: this.$store.state.setup.civilizations.numberHumanPlayers,
+      playerCivilization: [...this.$store.state.setup.civilizations.playerCivilization],
       botCivilization: [...this.$store.state.setup.civilizations.botCivilization],
       valid: false
     }
@@ -91,20 +98,27 @@ export default defineComponent({
     updateNumberPlayers() {
       this.validate()
     },
-    updatePlayerCivilization() {
+    updatePlayerCivilization(playerIndex : number) {
       for (let i=0; i<=3; i++) {
-        if (this.botCivilization[i] == this.playerCivilization) {
+        if (i != playerIndex-1 && this.playerCivilization[i] == this.playerCivilization[playerIndex-1]) {
+          delete this.playerCivilization[i]
+        }
+      }
+      for (let i=0; i<=3; i++) {
+        if (this.botCivilization[i] == this.playerCivilization[playerIndex-1]) {
           delete this.botCivilization[i]
         }
       }
       this.validate()
     },
-    updateBotCivilization(bot : number) {
-      if (this.playerCivilization == this.botCivilization[bot-1]) {
-        this.playerCivilization = undefined
+    updateBotCivilization(botIndex : number) {
+      for (let i=0; i<=3; i++) {
+        if (this.playerCivilization[i] == this.botCivilization[botIndex-1]) {
+          delete this.playerCivilization[i]
+        }
       }
       for (let i=0; i<=3; i++) {
-        if (i != bot-1 && this.botCivilization[i] == this.botCivilization[bot-1]) {
+        if (i != botIndex-1 && this.botCivilization[i] == this.botCivilization[botIndex-1]) {
           delete this.botCivilization[i]
         }
       }
@@ -112,9 +126,15 @@ export default defineComponent({
     },
     validate() {
       // validate player count and civs
-      let valid = (this.numberPlayers >= 2 && this.numberPlayers <= (this.hasFivePlayers ? 5 : 4))
-      valid = valid && this.isValidCivilization(this.playerCivilization)
-      for (let i=0; i<this.numberPlayers-1; i++) {
+      if (this.numberHumanPlayers >= this.numberPlayers) {
+        this.numberHumanPlayers = this.numberPlayers - 1
+      }
+      let valid = this.numberPlayers >= 2 && this.numberPlayers <= (this.hasFivePlayers ? 5 : 4)
+          && this.numberHumanPlayers >= 1 && this.numberHumanPlayers < this.numberPlayers
+      for (let i=0; i<this.numberHumanPlayers; i++) {
+        valid = valid && this.isValidCivilization(this.playerCivilization[i])
+      }
+      for (let i=0; i<this.numberPlayers-this.numberHumanPlayers; i++) {
         valid = valid && this.isValidCivilization(this.botCivilization[i])
       }
 
@@ -122,8 +142,9 @@ export default defineComponent({
       if (valid) {
         const civilizations : CivilizationSetup = {
           numberPlayers: this.numberPlayers,
-          playerCivilization: this.playerCivilization,
-          botCivilization: this.botCivilization.slice(0, this.numberPlayers - 1)
+          numberHumanPlayers: this.numberHumanPlayers,
+          playerCivilization: this.playerCivilization.slice(0, this.numberHumanPlayers),
+          botCivilization: this.botCivilization.slice(0, this.numberPlayers - this.numberHumanPlayers)
         }
         this.$store.commit('setupCivilizations', civilizations)
       }
