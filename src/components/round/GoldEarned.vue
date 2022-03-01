@@ -43,6 +43,7 @@ export default defineComponent({
   font-weight: bold;
   display: inline;
   float: right;
+  white-space: nowrap;
   input {
     width: 3.5rem;
   }

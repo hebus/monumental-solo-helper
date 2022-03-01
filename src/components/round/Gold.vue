@@ -46,6 +46,7 @@ export default defineComponent({
   font-weight: bold;
   display: inline;
   float: right;
+  white-space: nowrap;
   img {
     height: 1.75rem;
     filter: drop-shadow(0.15rem 0.15rem 0.15rem #aaa);
