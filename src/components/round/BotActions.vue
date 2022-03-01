@@ -13,19 +13,29 @@
       <Gold :value="bot.goldInitial"/>
     </div>
     <div class="col-1" :title="t('roundBot.culturalPolicies')">
-      <div class="cultural-policy">{{bot.culturalPolicies}}</div>
-      <div class="cultural-policy-card"></div>
+      <div class="cultural-policies">
+        <div class="cultural-policy">{{bot.culturalPolicies}}</div>
+        <div class="cultural-policy-card"></div>
+      </div>
     </div>
   </div>
   <div v-for="(cardActions, cardIndex) in displayedActionsPerCard" :key="cardIndex" class="cardRowGroup">
     <div class="action row" v-for="(action, index) in cardActions" :key="index">
-      <div class="col-6" :class="{skipped: action.skipped}">
+      <div class="col-10 col-md-6" :class="{skipped: action.skipped}">
         <ActionText :action="action" :index="cardIndex+'_'+index"/>
       </div>
-      <div class="col-2">
+      <div class="col-1 order-md-5">
+        <template v-if="action.completed">
+          <Gold :value="action.gold" delta/>
+        </template>
+        <template v-else-if="action.goldCost">
+          <Gold :value="-action.goldCost" delta class="goldCost"/>
+        </template>
+      </div>
+      <div class="col-6 mt-2 col-md-2 mt-md-0">
         <GoldEarned v-if="!action.completed && action.mayEarnGold()" v-model="currentActionGoldEarned"/>
       </div>
-      <div class="col-2">
+      <div class="col-6 mt-2 col-md-2 mt-md-0">
         <template v-if="action.skipped">❌</template>
         <template v-else-if="action.completed">✔</template>
         <template v-else-if="isChooseAction(action)">
@@ -34,14 +44,6 @@
         <template v-else>
           <button type="button" class="btn btn-success" @click="complete(action)">{{t('roundBot.action.complete')}}</button>
           <button type="button" class="btn btn-outline-danger not-possible" @click="notPossible(action)">{{t('roundBot.action.notPossible')}}</button>
-        </template>
-      </div>
-      <div class="col-1">
-        <template v-if="action.completed">
-          <Gold :value="action.gold" delta/>
-        </template>
-        <template v-else-if="action.goldCost">
-          <Gold :value="-action.goldCost" delta class="goldCost"/>
         </template>
       </div>
     </div>
@@ -253,6 +255,9 @@ export default defineComponent({
   &.advanced {
     filter: grayscale(100%) brightness(40%) sepia(100%) hue-rotate(-50deg) saturate(600%) contrast(0.8) drop-shadow(0.15rem 0.15rem 0.15rem #aaa);
   }
+}
+.cultural-policies {
+  white-space: nowrap;
 }
 .cultural-policy {
   display: inline-block;
