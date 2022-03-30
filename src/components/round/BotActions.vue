@@ -164,7 +164,7 @@ export default defineComponent({
         return '/round/' + (this.round+1) + '/player/1'
       }
     },
-    displayedActionsPerCard() : _.Dictionary<[BotCardAction,...BotCardAction[]]> {
+    displayedActionsPerCard() : _.Dictionary<BotCardAction[]> {
       let actions = this.bot.actions;
       if (this.nextActionIndex != undefined) {
         actions = this.bot.actions.slice(0, this.nextActionIndex+1)
