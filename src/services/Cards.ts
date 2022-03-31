@@ -172,9 +172,9 @@ cards.forEach(card => cardsMap.set(card.name, card))
 export default {
 
   /**
-   * Get civilization by name
+   * Get card by name
    * @param name Name
-   * @returns Civilization
+   * @returns Card
    */
   get(name: CardName) : Card {
     const card = cardsMap.get(name)
