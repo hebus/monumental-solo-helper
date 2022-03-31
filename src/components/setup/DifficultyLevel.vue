@@ -30,7 +30,7 @@ import { useI18n } from 'vue-i18n'
 import { useStore } from '@/store'
 
 export default defineComponent({
-  name: 'SelectExpansion',
+  name: 'DifficultyLevel',
   setup() {
     const { t } = useI18n()
     const store = useStore()
@@ -44,6 +44,3 @@ export default defineComponent({
   }
 })
 </script>
-
-<style lang="scss" scoped>
-</style>
