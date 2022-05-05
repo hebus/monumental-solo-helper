@@ -14,7 +14,7 @@ export interface State {
   language: string
   baseFontSize: number
   setup: Setup
-  rounds: Round[],
+  rounds: Round[]
   scoring?: ScoringPersistence
 }
 export interface Setup {
@@ -37,8 +37,8 @@ export interface BotPersistence {
   cardDeck: CardDeckPersistence
   gold: number
   culturalPolicies: number
-  actions: BotCardActionPersistence[],
-  cardsDrawn: CardName[],
+  actions: BotCardActionPersistence[]
+  cardsDrawn: CardName[]
   cardsDrawnForRound: number
 }
 export interface BotCardActionPersistence {
@@ -60,7 +60,7 @@ export interface ScoringPersistence {
   knowledgeCardCount: number[]
   wonderCardCount: number[]
   culturalPolicyCountPlayer: number[]
-  provinceCount: number[],
+  provinceCount: number[]
   monsterCountPlayer: number[]
 }
 

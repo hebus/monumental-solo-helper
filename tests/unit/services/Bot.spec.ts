@@ -46,7 +46,7 @@ describe('Bot', () => {
     expect(persistence.actions).to.eql([])
     expect(persistence.cardsDrawn.length).to.eq(0)
     expect(persistence.cardsDrawnForRound).to.eq(0)
-  }),
+  })
 
   it('startRound.drawAllCards', () => {
     const bot = setupBot(CivilizationName.CHINA,
@@ -80,7 +80,7 @@ describe('Bot', () => {
     expect(bot.actions[3].cardNumber).to.eq(2)
     expect(bot.actions[4].cardNumber).to.eq(2)
     expect(bot.actions[5].cardNumber).to.eq(2)
-  }),
+  })
 
   it('multipleRounds', () => {
     const bot1 = setupBot(CivilizationName.CHINA,
@@ -108,7 +108,7 @@ describe('Bot', () => {
     expect(bot2.actions.length, "actions round 2").to.eq(2)
     expect(bot2.actions[0].action).to.eq(Action.CONQUER_1_ADJACENT_LOWEST_COST)
     expect(bot2.actions[1].action).to.eq(Action.CONQUER_1_ADJACENT_LOWEST_COST)
-  }),
+  })
 
   it('GREECE.CONQUER_IF_ARCHITECTURAL_action1_action2.skip', () => {
     const bot = setupBot(CivilizationName.GREECE,
@@ -149,7 +149,7 @@ describe('Bot', () => {
     expect(action2.gold).to.eq(0)
 
     expect(bot.goldTotal).to.eq(1, "gold after skipping action 2")
-  }),
+  })
 
   it('GREECE.CONQUER_IF_ARCHITECTURAL_action1.skip_action2', () => {
     const bot = setupBot(CivilizationName.GREECE,
@@ -170,7 +170,7 @@ describe('Bot', () => {
     action2.complete({goldEarned: 3})
 
     expect(bot.goldTotal).to.eq(3, "gold after action 2")
-  }),
+  })
 
   it('JAPAN.CULTURAL_POLICY_IF_AGGRESSIVE.GOLD_IF_CULTURAL', () => {
     const bot = setupBot(CivilizationName.JAPAN,
@@ -187,7 +187,7 @@ describe('Bot', () => {
     expect(bot.culturalPolicies, "cultural policies").to.eq(3)
     expect(bot.goldTotal, "gold").to.eq(5 - 3 + 3 + 2*3)
     expect(bot.hasMoreActions(), "has more actions").to.false
-  }),
+  })
 
   it('DENMARK.EXPLORERS_IF_AGGRESSIVE', () => {
     const bot = setupBot(CivilizationName.DENMARK,
@@ -207,7 +207,7 @@ describe('Bot', () => {
     // SHUFFLE_CARDS is played automatically - discard pile is empty
     const persistence = bot.toPersistence()
     expect(persistence.cardDeck.discardPile.length).to.eq(0)
-  }),
+  })
 
   it('AMAZONS.AMAZON_CIVILIZATION', () => {
     const bot = setupBot(CivilizationName.AMAZONS,
@@ -243,7 +243,7 @@ describe('Bot', () => {
 
     expect(bot.goldTotal).to.eq(0)
     expect(bot.hasMoreActions()).to.false
-  }),
+  })
 
   it('CHINA.CHINA_CIVILIZATION', () => {
     const bot = setupBot(CivilizationName.CHINA,
@@ -261,7 +261,7 @@ describe('Bot', () => {
     const persistence = bot.toPersistence()
     expect(persistence.cardDeck.openCards).to.eql([CardName.EXPLORERS_IF_TECHNOLOGICAL])
     expect(persistence.cardDeck.discardPile.length).to.eq(3)
-  }),
+  })
 
   it('EGYPT.CHINA_CIVILIZATION', () => {
     const bot = setupBot(CivilizationName.EGYPT,
@@ -280,7 +280,7 @@ describe('Bot', () => {
     expect(bot.actions.length).to.eq(11)
     expect(bot.cardsDrawn.length).to.eq(3)
     expect(bot.culturalPolicies).to.eq(2)
-  }),
+  })
 
   it('GREECE.GREECE_CIVILIZATION', () => {
     const bot = setupBot(CivilizationName.GREECE,
@@ -298,7 +298,7 @@ describe('Bot', () => {
 
     expect(bot.actions[1].action).to.eq(Action.CONQUER_1_ADJACENT_LOWEST_COST)
     expect(bot.actions[2].action).to.eq(Action.CONQUER_1_ADJACENT_HIGHEST_COST)
-  }),
+  })
 
   it('MUGHALS.MUGHALS_CIVILIZATION', () => {
     const bot = setupBot(CivilizationName.MUGHALS,
@@ -316,7 +316,7 @@ describe('Bot', () => {
 
     expect(bot.actions[2].action).to.eq(Action.KNOWLEDGE_TAKE_HIGHEST_COST)
     expect(bot.actions[3].action).to.eq(Action.KNOWLEDGE_TAKE_HIGHEST_COST)
-  }),
+  })
 
   it('JAPAN.JAPAN_CIVILIZATION.option.CONQUER_1_ADJACENT_LOWEST_COST', () => {
     const bot = setupBot(CivilizationName.JAPAN,
@@ -332,7 +332,7 @@ describe('Bot', () => {
     expect(bot.goldTotal).to.eq(4)
     expect(bot.actions[0].action == Action.CONQUER_1_ADJACENT_LOWEST_COST)
     expect(bot.actions.length).to.eq(3)
-  }),
+  })
 
   it('JAPAN.JAPAN_CIVILIZATION.option.DEVELOP_1_CULTURAL_POLICY', () => {
     const bot = setupBot(CivilizationName.JAPAN,
@@ -348,7 +348,7 @@ describe('Bot', () => {
     expect(bot.culturalPolicies).to.eq(1)
     expect(bot.actions[0].action == Action.DEVELOP_1_CULTURAL_POLICY)
     expect(bot.actions.length).to.eq(3)
-  }),
+  })
 
   it('JAPAN.JAPAN_CIVILIZATION.option.DRAW_CARD', () => {
     const bot = setupBot(CivilizationName.JAPAN,
@@ -363,7 +363,7 @@ describe('Bot', () => {
 
     expect(bot.actions[0].action == Action.DRAW_CARD)
     expect(bot.actions.length).to.eq(3)
-  }),
+  })
 
   it('ATLANTIS.ATLANTIS_CIVILIZATION', () => {
     const bot = setupBot(CivilizationName.ATLANTIS,
@@ -395,7 +395,7 @@ describe('Bot', () => {
     expect(bot.actions[5].action).to.eq(Action.KNOWLEDGE_TAKE_HIGHEST_COST)
     expect(bot.actions[6].action).to.eq(Action.DEVELOP_1_CULTURAL_POLICY)
     expect(bot.actions[7].action).to.eq(Action.DEVELOP_1_CULTURAL_POLICY)
-  }),
+  })
 
   it('developCulturalPolicy.exceedLimit', () => {
     const bot = setupBot(CivilizationName.JAPAN,
@@ -418,5 +418,4 @@ describe('Bot', () => {
 
     expect(bot.goldTotal).to.eq(20)
   })
-
 })

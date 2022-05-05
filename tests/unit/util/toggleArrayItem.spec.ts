@@ -8,7 +8,7 @@ describe('toggleArrayItem', () => {
     toggleArrayItem(array, Expansion.LOST_KINGDOMS)
 
     expect(array).to.eql([Expansion.AFRICAN_EMPIRES])
-  }),
+  })
 
   it('toggleNotExist', () => {
     const array : Expansion[] = []
