@@ -5,7 +5,7 @@ import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import CivilizationName from '@/services/enum/CivilizationName'
 import Expansion from '@/services/enum/Expansion'
 import CardName from '@/services/enum/CardName'
-import toggleArrayItem from '@/util/toggleArrayItem'
+import toggleArrayItem from 'brdgm-commons/src/util/array/toggleArrayItem'
 import Action from '@/services/enum/Action'
 
 const LOCALSTORAGE_KEY = process.env.VUE_APP_LOCALSTORAGE_KEY_PREFIX + "store"

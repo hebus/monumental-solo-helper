@@ -148,7 +148,7 @@ export default defineComponent({
 
     let nextActionIndex = ref(bot.getNextActionIndex())
 
-    return { t, store, round, botIndex, botCount, civilizationName, bot, nextActionIndex }
+    return { t, round, botIndex, botCount, civilizationName, bot, nextActionIndex }
   },
   data() {
     return {

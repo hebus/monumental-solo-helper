@@ -192,7 +192,7 @@ export default defineComponent({
       set: (v) => v
     })
 
-    return { t, store, playerCivilization, playerCount, botCivilization, botCount, roundCount,
+    return { t, playerCivilization, playerCount, botCivilization, botCount, roundCount,
       knowledgeCardCount, knowledgeCardVP, knowledgeCardDominanceVP,
       wonderCardCount, wonderCardVP, wonderCardDominanceVP,
       culturalPolicyCount, culturalPolicyVP, culturalPolicyDominanceVP,
@@ -203,7 +203,7 @@ export default defineComponent({
   },
   methods: {
     persist() {
-      this.store.commit('scoring', {
+      this.$store.commit('scoring', {
         knowledgeCardCount: this.knowledgeCardCount,
         wonderCardCount: this.wonderCardCount,
         culturalPolicyCountPlayer: this.culturalPolicyCount.slice(0, this.playerCount),

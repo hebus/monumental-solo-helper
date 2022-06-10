@@ -33,8 +33,8 @@ export default defineComponent({
   name: 'DifficultyLevel',
   setup() {
     const { t } = useI18n()
-    const store = useStore()
-    return { t, store }
+    useStore()
+    return { t }
   },
   methods: {
     updateDifficultyLevel(event: Event) {
