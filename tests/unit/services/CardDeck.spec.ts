@@ -3,7 +3,6 @@ import CardName from '@/services/enum/CardName'
 import CardDeck from '@/services/CardDeck'
 import { expect } from 'chai'
 import Cards from '@/services/Cards'
-import Card from '@/services/Card'
 
 describe('CardDeck', () => {
   it('newShuffled', () => {
