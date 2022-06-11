@@ -5,7 +5,7 @@ import DifficultyLevel from '@/services/enum/DifficultyLevel'
 import CivilizationName from '@/services/enum/CivilizationName'
 import Expansion from '@/services/enum/Expansion'
 import CardName from '@/services/enum/CardName'
-import toggleArrayItem from '@/util/toggleArrayItem'
+import toggleArrayItem from 'brdgm-commons/src/util/array/toggleArrayItem'
 import Action from '@/services/enum/Action'
 
 const LOCALSTORAGE_KEY = process.env.VUE_APP_LOCALSTORAGE_KEY_PREFIX + "store"
@@ -14,7 +14,7 @@ export interface State {
   language: string
   baseFontSize: number
   setup: Setup
-  rounds: Round[],
+  rounds: Round[]
   scoring?: ScoringPersistence
 }
 export interface Setup {
@@ -37,8 +37,8 @@ export interface BotPersistence {
   cardDeck: CardDeckPersistence
   gold: number
   culturalPolicies: number
-  actions: BotCardActionPersistence[],
-  cardsDrawn: CardName[],
+  actions: BotCardActionPersistence[]
+  cardsDrawn: CardName[]
   cardsDrawnForRound: number
 }
 export interface BotCardActionPersistence {
@@ -60,7 +60,7 @@ export interface ScoringPersistence {
   knowledgeCardCount: number[]
   wonderCardCount: number[]
   culturalPolicyCountPlayer: number[]
-  provinceCount: number[],
+  provinceCount: number[]
   monsterCountPlayer: number[]
 }
 
@@ -159,7 +159,7 @@ export const store = createStore<State>({
   }
 })
 
-store.subscribe((mutation, state) => {
+store.subscribe((_mutation, state) => {
 	// store state asJSON string in local storage
 	localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(state));
 })

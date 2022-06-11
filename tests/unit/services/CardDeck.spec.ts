@@ -3,7 +3,6 @@ import CardName from '@/services/enum/CardName'
 import CardDeck from '@/services/CardDeck'
 import { expect } from 'chai'
 import Cards from '@/services/Cards'
-import Card from '@/services/Card'
 
 describe('CardDeck', () => {
   it('newShuffled', () => {
@@ -20,7 +19,7 @@ describe('CardDeck', () => {
     expect(persistence.nexusCards.length).to.eq(0)
 
     expect(persistence.drawPile.includes(CardName.GREECE_CIVILIZATION)).to.true
-  }),
+  })
 
   it('draw', () => {
     const cardDeck = CardDeck.fromPersistence({
@@ -41,7 +40,7 @@ describe('CardDeck', () => {
     expect(persistence.discardPile, 'discardPile').to.eql([])
     expect(persistence.openCards, 'openCards').to.eql([CardName.GOLD_IF_CULTURAL, CardName.WONDER_IF_ECONOMIC])
     expect(persistence.nexusCards, 'nexusCards').to.eql([])
-  }),
+  })
 
   it('discardAll', () => {
     const cardDeck = CardDeck.fromPersistence({
@@ -58,7 +57,7 @@ describe('CardDeck', () => {
     expect(persistence.discardPile, 'discardPile').to.eql([CardName.GOLD_IF_CULTURAL, CardName.WONDER_IF_ECONOMIC])
     expect(persistence.openCards, 'openCards').to.eql([])
     expect(persistence.nexusCards, 'nexusCards').to.eql([])
-  }),
+  })
 
   it('discardCard', () => {
     const cardDeck = CardDeck.fromPersistence({
@@ -79,7 +78,7 @@ describe('CardDeck', () => {
     expect(persistence.discardPile, 'discardPile').to.eql([CardName.WONDER_IF_ECONOMIC])
     expect(persistence.openCards, 'openCards').to.eql([CardName.GOLD_IF_CULTURAL, CardName.CONQUER_IF_ARCHITECTURAL])
     expect(persistence.nexusCards, 'nexusCards').to.eql([])
-  }),
+  })
 
   it('shuffleDiscardDrawPile', () => {
     const cardDeck = CardDeck.fromPersistence({
@@ -98,7 +97,7 @@ describe('CardDeck', () => {
     expect(persistence.drawPile.includes(CardName.CONQUER_IF_ARCHITECTURAL), 'drawPile.card1').to.true
     expect(persistence.drawPile.includes(CardName.GOLD_IF_CULTURAL), 'drawPile.card2').to.true
     expect(persistence.drawPile.includes(CardName.WONDER_IF_ECONOMIC), 'drawPile.card3').to.true
-  }),
+  })
 
   it('removeCard', () => {
     const cardDeck = CardDeck.fromPersistence({
@@ -108,16 +107,16 @@ describe('CardDeck', () => {
       nexusCards: []
     })
 
-    cardDeck.removeCard(Cards.get(CardName.GOLD_IF_CULTURAL) as Card)
-    cardDeck.removeCard(Cards.get(CardName.WONDER_IF_ECONOMIC) as Card)
-    cardDeck.removeCard(Cards.get(CardName.EXPLORERS_IF_CULTURAL) as Card)
+    cardDeck.removeCard(Cards.get(CardName.GOLD_IF_CULTURAL))
+    cardDeck.removeCard(Cards.get(CardName.WONDER_IF_ECONOMIC))
+    cardDeck.removeCard(Cards.get(CardName.EXPLORERS_IF_CULTURAL))
 
     const persistence = cardDeck.toPersistence()
     expect(persistence.drawPile, 'drawPile').to.eql([])
     expect(persistence.discardPile, 'discardPile').to.eql([CardName.CONQUER_IF_ARCHITECTURAL])
     expect(persistence.openCards, 'openCards').to.eql([CardName.KNOWLEDGE_IF_ARCHITECTURAL])
     expect(persistence.nexusCards, 'nexusCards').to.eql([])
-  }),
+  })
 
   it('moveToNexus', () => {
     const cardDeck = CardDeck.fromPersistence({
@@ -139,5 +138,4 @@ describe('CardDeck', () => {
     expect(persistence.openCards, 'openCards').to.eql([CardName.GOLD_IF_CULTURAL, CardName.CONQUER_IF_ARCHITECTURAL])
     expect(persistence.nexusCards, 'nexusCards').to.eql([CardName.WONDER_IF_ECONOMIC])
   })
-
 })

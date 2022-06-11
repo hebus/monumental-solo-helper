@@ -70,7 +70,7 @@ export default defineComponent({
   },
   emits: {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    valid(valid: boolean) {
+    valid(_valid: boolean) {
       return true
     }
   },

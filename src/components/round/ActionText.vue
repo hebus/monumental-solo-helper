@@ -65,5 +65,8 @@ export default defineComponent({
 <style lang="scss" scoped>
 .actionHelp {
   cursor: help;
+  :deep(b) {
+    text-decoration: underline dotted;
+  }
 }
 </style>
