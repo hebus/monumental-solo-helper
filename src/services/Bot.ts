@@ -257,9 +257,8 @@ export default class Bot {
     const cardDeck = CardDeck.fromPersistence(persistence.cardDeck)
     // calculate new initial gold from previous actions and discard the actions
     const gold = persistence.gold + _.reduce(persistence.actions, (sum, action) => sum + action.gold, 0)
-    const bot = new Bot(civilization, cardDeck,
+    return new Bot(civilization, cardDeck,
       gold, persistence.culturalPolicies, [], [], 0)
-    return bot
   }
 
 }

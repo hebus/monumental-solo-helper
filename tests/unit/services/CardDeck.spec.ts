@@ -108,9 +108,9 @@ describe('CardDeck', () => {
       nexusCards: []
     })
 
-    cardDeck.removeCard(Cards.get(CardName.GOLD_IF_CULTURAL) as Card)
-    cardDeck.removeCard(Cards.get(CardName.WONDER_IF_ECONOMIC) as Card)
-    cardDeck.removeCard(Cards.get(CardName.EXPLORERS_IF_CULTURAL) as Card)
+    cardDeck.removeCard(Cards.get(CardName.GOLD_IF_CULTURAL))
+    cardDeck.removeCard(Cards.get(CardName.WONDER_IF_ECONOMIC))
+    cardDeck.removeCard(Cards.get(CardName.EXPLORERS_IF_CULTURAL))
 
     const persistence = cardDeck.toPersistence()
     expect(persistence.drawPile, 'drawPile').to.eql([])

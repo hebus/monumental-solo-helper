@@ -3,6 +3,7 @@ import Card from "./Card";
 import CivilizationType from "./enum/CivilizationType";
 import Action from "./enum/Action";
 import CivilizationName from "./enum/CivilizationName";
+import findMandatory from "brdgm-commons/src/util/map/findMandatory"
 
 const cards = [
   /* Standard Action Cards */
@@ -177,11 +178,7 @@ export default {
    * @returns Card
    */
   get(name: CardName) : Card {
-    const card = cardsMap.get(name)
-    if (!card) {
-      throw new Error("Invalid card: " + name)
-    }
-    return card
+    return findMandatory(cardsMap, name)
   },
 
   /**
@@ -197,15 +194,15 @@ export default {
    * @returns cards
    */
   getAdvanced() : Card[] {
-    return cards.filter(card => card.advanced == true)
+    return cards.filter(card => card.advanced)
   },
 
   /**
-   * Get standard action cards
-   * @returns cards
+   * Get civilization card
+   * @returns card
    */
   getCivilization(civilization: CivilizationName) : Card {
-    const card = cards.find(card=> card.civilization == civilization)
+    const card = cards.find(c => c.civilization == civilization)
     if (!card) {
       throw new Error("No civilization card for " + civilization)
     }
