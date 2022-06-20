@@ -151,7 +151,7 @@
     "abortGame": "Abort Game",
     "abortGameConfirm": "Aborting the running game - are you sure?",
     "finishGame": "Finish Game",
-    "finishGameConfirm": "Finishing this game - are you sure?",
+    "finishGameConfirm": "Finishing this game and go to scoring - are you sure?",
     "endGame": "End Game",
     "endGameConfirm": "End this game and return to home screen - are you sure?",
     "roundResetTurn": "Reset Turn",
