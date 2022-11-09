@@ -10,7 +10,7 @@
     <div class="col-2"></div>
     <div class="col-2"></div>
     <div class="col-1">
-      <Gold :value="bot.goldInitial"/>
+      <GoldInfo :value="bot.goldInitial"/>
     </div>
     <div class="col-1" :title="t('roundBot.culturalPolicies')">
       <div class="cultural-policies">
@@ -26,10 +26,10 @@
       </div>
       <div class="col-1 order-md-5">
         <template v-if="action.completed">
-          <Gold :value="action.gold" delta/>
+          <GoldInfo :value="action.gold" delta/>
         </template>
         <template v-else-if="action.goldCost">
-          <Gold :value="-action.goldCost" delta class="goldCost"/>
+          <GoldInfo :value="-action.goldCost" delta class="goldCost"/>
         </template>
       </div>
       <div class="col-6 mt-2 col-md-2 mt-md-0">
@@ -57,7 +57,7 @@
     <div class="col-2"></div>
     <div class="col-2"></div>
     <div class="col-1 goldTotal">
-      <Gold :value="bot.goldTotal"/>
+      <GoldInfo :value="bot.goldTotal"/>
     </div>
   </div>
   
@@ -101,7 +101,7 @@ import { useRoute } from 'vue-router'
 import { useStore } from '@/store'
 import Bot from '@/services/Bot'
 import ActionText from "./ActionText.vue"
-import Gold from './Gold.vue'
+import GoldInfo from './GoldInfo.vue'
 import GoldEarned from './GoldEarned.vue'
 import CivilizationName from '@/services/enum/CivilizationName'
 import BotCardAction from '@/services/BotCardAction'
@@ -113,7 +113,7 @@ export default defineComponent({
   name: 'BotActions',
   components: {
     ActionText,
-    Gold,
+    GoldInfo,
     GoldEarned
   },
   setup() {
@@ -146,7 +146,7 @@ export default defineComponent({
       store.commit('roundBot', { round: round, botIndex: botIndex, bot: bot.toPersistence() })
     }
 
-    let nextActionIndex = ref(bot.getNextActionIndex())
+    const nextActionIndex = ref(bot.getNextActionIndex())
 
     return { t, round, botIndex, botCount, civilizationName, bot, nextActionIndex }
   },

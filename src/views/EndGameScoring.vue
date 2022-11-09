@@ -15,7 +15,7 @@ import CivilizationScoring from '@/components/scoring/CivilizationScoring.vue'
 import FooterButtons from '@/components/structure/FooterButtons.vue'
 
 export default defineComponent({
-  name: 'Scoring',
+  name: 'EndGameScoring',
   components: {
     CivilizationScoring,
     FooterButtons

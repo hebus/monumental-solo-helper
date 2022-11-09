@@ -156,7 +156,7 @@ export default defineComponent({
       if (name == undefined) {
         return false
       }
-      let civ = Civilizations.get(name)
+      const civ = Civilizations.get(name)
       if (!civ) {
         return false;
       }
