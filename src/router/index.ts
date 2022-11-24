@@ -1,10 +1,10 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import Home from '@/views/Home.vue'
+import AppHome from '@/views/AppHome.vue'
 import SetupGameDifficulty from '@/views/SetupGameDifficulty.vue'
 import SetupCivilization from '@/views/SetupCivilization.vue'
 import RoundPlayer from '@/views/RoundPlayer.vue'
 import RoundBot from '@/views/RoundBot.vue'
-import Scoring from '@/views/Scoring.vue'
+import EndGameScoring from '@/views/EndGameScoring.vue'
 import NotFound from '@/views/NotFound.vue'
 
 const LOCALSTORAGE_KEY = process.env.VUE_APP_LOCALSTORAGE_KEY_PREFIX + "route"
@@ -12,8 +12,8 @@ const LOCALSTORAGE_KEY = process.env.VUE_APP_LOCALSTORAGE_KEY_PREFIX + "route"
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'AppHome',
+    component: AppHome
   },
   {
     path: '/setup/gameDifficulty',
@@ -37,8 +37,8 @@ const routes: Array<RouteRecordRaw> = [
   },
   {
     path: '/scoring',
-    name: 'Scoring',
-    component: Scoring
+    name: 'EndGameScoring',
+    component: EndGameScoring
   },
   {
     path: '/:pathMatch(.*)*',
@@ -54,7 +54,7 @@ const router = createRouter({
 
 // store last used route path in local storage
 router.afterEach(to => {
-  localStorage.setItem(LOCALSTORAGE_KEY, to.fullPath as string)
+  localStorage.setItem(LOCALSTORAGE_KEY, to.fullPath)
 })
 // redirect to lase used route path
 let isFirstTransition = true
