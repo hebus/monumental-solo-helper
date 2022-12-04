@@ -153,6 +153,10 @@ export const store = createStore<State>({
       state.rounds = []
       state.scoring = undefined
     },
+    resetGameRounds(state : State) {
+      state.rounds = []
+      state.scoring = undefined
+    },
     zoomFontSize(state : State, baseFontSize: number) {
       state.baseFontSize = baseFontSize
     }

@@ -3,9 +3,9 @@
 
   <SelectCivilizations @valid="setValid"/>
 
-  <router-link to="/round/1/player/1" class="btn btn-primary btn-lg mt-3" :class="{disabled: !valid}">
+  <button class="btn btn-primary btn-lg mt-3" :class="{disabled: !valid}" @click="startGame">
     {{t('action.startGame')}}
-  </router-link>
+  </button>
 
   <FooterButtons endGameButtonType="abortGame" backButtonRouteTo="/setup/gameDifficulty"/>
 </template>
@@ -32,8 +32,12 @@ export default defineComponent({
     }
   },
   methods: {
-    setValid(valid: boolean) {
+    setValid(valid: boolean) : void {
       this.valid = valid
+    },
+    startGame() : void {
+      this.$store.commit('resetGameRounds')
+      this.$router.push('/round/1/player/1')
     }
   }
 })
