@@ -61,35 +61,31 @@
     </div>
   </div>
   
-  <div class="modal" id="chooseActionModal" tabindex="-1" v-if="nextAction">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title"><span v-html="t('cardAction.choose-action')"></span></h5>
-          <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="container">
-            <div class="action row" v-for="(action,index) in nextAction.actionOptions" :key="index">
-              <div class="col-8">
-                <i><span v-html="t('chooseAction.' + currentCardName + '.' + (index+1))"></span></i><br/>
-                <span v-html="t('cardAction.' + action)"></span>
-              </div>
-              <div class="col-2">
-                <GoldEarned v-if="nextAction.mayEarnGold(action)" v-model="currentActionGoldEarned"/>
-              </div>
-              <div class="col-2">
-                <button type="button" class="btn btn-success" data-bs-dismiss="modal" @click="complete(nextAction!, action)">{{t('roundBot.action.choose')}}</button>
-              </div>
-            </div>
+  <ModalDialog v-if="nextAction" id="chooseActionModal" :size-xl="true">
+    <template #header>
+      <h5 class="modal-title"><span v-html="t('cardAction.choose-action')"></span></h5>
+      <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </template>
+    <template #body>
+      <div class="container">
+        <div class="action row" v-for="(action,index) in nextAction.actionOptions" :key="index">
+          <div class="col-8">
+            <i><span v-html="t('chooseAction.' + currentCardName + '.' + (index+1))"></span></i><br/>
+            <span v-html="t('cardAction.' + action)"></span>
+          </div>
+          <div class="col-2">
+            <GoldEarned v-if="nextAction.mayEarnGold(action)" v-model="currentActionGoldEarned"/>
+          </div>
+          <div class="col-2">
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" @click="complete(nextAction!, action)">{{t('roundBot.action.choose')}}</button>
           </div>
         </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.cancel')}}</button>
-        </div>
       </div>
-    </div>
-  </div>
+    </template>
+    <template #footer>
+      <button class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.cancel')}}</button>
+    </template>
+  </ModalDialog>
 
 </template>
 
@@ -103,6 +99,7 @@ import Bot from '@/services/Bot'
 import ActionText from "./ActionText.vue"
 import GoldInfo from './GoldInfo.vue'
 import GoldEarned from './GoldEarned.vue'
+import ModalDialog from 'brdgm-commons/src/components/structure/ModalDialog.vue'
 import CivilizationName from '@/services/enum/CivilizationName'
 import BotCardAction from '@/services/BotCardAction'
 import NavigationState from "@/util/NavigationState"
@@ -114,7 +111,8 @@ export default defineComponent({
   components: {
     ActionText,
     GoldInfo,
-    GoldEarned
+    GoldEarned,
+    ModalDialog
   },
   setup() {
     const { t } = useI18n()
