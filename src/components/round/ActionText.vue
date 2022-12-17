@@ -3,31 +3,26 @@
   <span v-else v-html="t(actionTextKey)"></span>
   <span v-if="action.goldCost">{{' ' + t('roundBot.goldCost', {number: action.goldCost})}}</span>
   
-  <div v-if="showActionHelp" class="modal" :id="actionHelpId" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">{{t(actionHelpTitleKey)}}</h5>
-          <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div v-html="t(actionHelpTextKey)"></div>
-        </div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" data-bs-dismiss="modal">{{t('action.close')}}</button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <ModalDialog v-if="showActionHelp" :id="actionHelpId" :title="t(actionHelpTitleKey)"
+      :size-lg="true" :scrollable="true">
+    <template #body>
+      <div v-html="t(actionHelpTextKey)"></div>
+    </template>
+  </ModalDialog>
+
 </template>
 
 <script lang="ts">
 import BotCardAction from '@/services/BotCardAction'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
+import ModalDialog from 'brdgm-commons/src/components/structure/ModalDialog.vue'
 
 export default defineComponent({
   name: 'ActionText',
+  components: {
+    ModalDialog
+  },
   setup() {
     const { t } = useI18n()
     return { t }
