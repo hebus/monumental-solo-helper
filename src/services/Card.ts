@@ -1,7 +1,7 @@
-import Action from "./enum/Action"
-import CardName from "./enum/CardName"
-import CivilizationType from "./enum/CivilizationType"
-import CivilizationName from "./enum/CivilizationName"
+import Action from './enum/Action'
+import CardName from './enum/CardName'
+import CivilizationType from './enum/CivilizationType'
+import CivilizationName from './enum/CivilizationName'
 
 export default interface Card {
   name: CardName

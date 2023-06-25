@@ -92,13 +92,13 @@
 </template>
 
 <script lang="ts">
-import * as _ from "lodash"
+import * as _ from 'lodash'
 import { computed, defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useStore } from '@/store'
 import CivilizationIconName from '@/components/structure/CivilizationIconName.vue'
-import tdScore from "./ScoreCell.vue"
-import Bot from "@/services/Bot"
+import tdScore from './ScoreCell.vue'
+import Bot from '@/services/Bot'
 
 export default defineComponent({
   name: 'CivilizationScoring',

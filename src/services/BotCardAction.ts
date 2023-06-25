@@ -1,10 +1,10 @@
-import { BotCardActionPersistence } from "@/store"
-import ActionsHelp from "./ActionsHelp"
-import Bot from "./Bot"
-import Card from "./Card"
-import Action from "./enum/Action"
-import ActionHelp from "./enum/ActionHelp"
-import CivilizationType from "./enum/CivilizationType"
+import { BotCardActionPersistence } from '@/store'
+import ActionsHelp from './ActionsHelp'
+import Bot from './Bot'
+import Card from './Card'
+import Action from './enum/Action'
+import ActionHelp from './enum/ActionHelp'
+import CivilizationType from './enum/CivilizationType'
 
 export default class BotCardAction {
 

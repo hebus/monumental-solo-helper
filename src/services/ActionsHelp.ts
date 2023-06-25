@@ -1,5 +1,5 @@
-import Action from "./enum/Action";
-import ActionHelp from "./enum/ActionHelp";
+import Action from './enum/Action';
+import ActionHelp from './enum/ActionHelp';
 
 const mappings = [
   { help: ActionHelp.GAIN_DEVELOPMENT_CARD, actions: [

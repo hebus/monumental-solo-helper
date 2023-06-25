@@ -1,10 +1,10 @@
-import * as _ from "lodash"
-import Card from "./Card"
-import Cards from "./Cards"
-import CivilizationName from "./enum/CivilizationName"
-import { CardDeckPersistence } from "@/store"
-import toCardNames from "@/util/toCardNames"
-import toCards from "@/util/toCards"
+import * as _ from 'lodash'
+import Card from './Card'
+import Cards from './Cards'
+import CivilizationName from './enum/CivilizationName'
+import { CardDeckPersistence } from '@/store'
+import toCardNames from '@/util/toCardNames'
+import toCards from '@/util/toCards'
 
 export default class CardDeck {
 

@@ -1,6 +1,6 @@
-import CivilizationName from "@/services/enum/CivilizationName";
-import { State } from "@/store";
-import { RouteLocation } from "vue-router";
+import CivilizationName from '@/services/enum/CivilizationName';
+import { State } from '@/store';
+import { RouteLocation } from 'vue-router';
 
 export default class NavigationState {
 
