@@ -1,6 +1,6 @@
-import Card from "@/services/Card";
-import Cards from "@/services/Cards";
-import CardName from "@/services/enum/CardName";
+import Card from '@/services/Card';
+import Cards from '@/services/Cards';
+import CardName from '@/services/enum/CardName';
 
 /**
  * Converts list of card names to card instances.

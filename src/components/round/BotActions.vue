@@ -90,21 +90,21 @@
 </template>
 
 <script lang="ts">
-import * as _ from "lodash"
+import * as _ from 'lodash'
 import { defineComponent, ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useRoute } from 'vue-router'
 import { useStore } from '@/store'
 import Bot from '@/services/Bot'
-import ActionText from "./ActionText.vue"
+import ActionText from './ActionText.vue'
 import GoldInfo from './GoldInfo.vue'
 import GoldEarned from './GoldEarned.vue'
 import ModalDialog from 'brdgm-commons/src/components/structure/ModalDialog.vue'
 import CivilizationName from '@/services/enum/CivilizationName'
 import BotCardAction from '@/services/BotCardAction'
-import NavigationState from "@/util/NavigationState"
-import Action from "@/services/enum/Action"
-import CardName from "@/services/enum/CardName"
+import NavigationState from '@/util/NavigationState'
+import Action from '@/services/enum/Action'
+import CardName from '@/services/enum/CardName'
 
 export default defineComponent({
   name: 'BotActions',

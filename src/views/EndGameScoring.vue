@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts">
-import * as _ from "lodash"
+import * as _ from 'lodash'
 import { defineComponent } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useStore } from '@/store'

@@ -1,13 +1,13 @@
-import * as _ from "lodash"
-import { BotPersistence } from "@/store"
-import CardDeck from "./CardDeck"
-import Civilization from "./Civilization"
-import Civilizations from "./Civilizations"
-import CivilizationName from "./enum/CivilizationName"
-import BotCardAction from "./BotCardAction"
-import Card, { CardAction } from "./Card"
-import toCardNames from "@/util/toCardNames"
-import toCards from "@/util/toCards"
+import * as _ from 'lodash'
+import { BotPersistence } from '@/store'
+import CardDeck from './CardDeck'
+import Civilization from './Civilization'
+import Civilizations from './Civilizations'
+import CivilizationName from './enum/CivilizationName'
+import BotCardAction from './BotCardAction'
+import Card, { CardAction } from './Card'
+import toCardNames from '@/util/toCardNames'
+import toCards from '@/util/toCards'
 
 export default class Bot {
 

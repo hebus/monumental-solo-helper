@@ -1,4 +1,4 @@
-import * as _ from "lodash"
+import * as _ from 'lodash'
 import { InjectionKey } from 'vue'
 import { createStore, useStore as baseUseStore, Store } from 'vuex'
 import DifficultyLevel from '@/services/enum/DifficultyLevel'

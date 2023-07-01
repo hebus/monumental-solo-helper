@@ -1,9 +1,9 @@
-import CardName from "./enum/CardName";
-import Card from "./Card";
-import CivilizationType from "./enum/CivilizationType";
-import Action from "./enum/Action";
-import CivilizationName from "./enum/CivilizationName";
-import findMandatory from "brdgm-commons/src/util/map/findMandatory"
+import CardName from './enum/CardName';
+import Card from './Card';
+import CivilizationType from './enum/CivilizationType';
+import Action from './enum/Action';
+import CivilizationName from './enum/CivilizationName';
+import findMandatory from 'brdgm-commons/src/util/map/findMandatory'
 
 const cards = [
   /* Standard Action Cards */
