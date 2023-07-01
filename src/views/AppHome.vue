@@ -24,6 +24,7 @@
     This is not an official Funforge product and has no affiliation with <a href="https://funforge.fr/" target="_blank" rel="noopener">Funforge</a>.
     All art in this app is from <a href="https://funforge.fr/game/en/monumental" target="_blank" rel="noopener">Monumental</a>.
     See <a href="#" data-bs-toggle="modal" data-bs-target="#creditsModal">{{t('footer.credits')}}</a>.
+    <a href="https://ko-fi.com/brdgm_me" target="_blank"><img class="kofi-button" src="@/assets/kofi_button_dark.png"/></a>
   </p>
 
 </template>
@@ -46,5 +47,8 @@ export default defineComponent({
   clear: both;
   margin-top: 4rem;
   font-size: smaller;
+}
+.kofi-button {
+  height: 1.4rem;
 }
 </style>
