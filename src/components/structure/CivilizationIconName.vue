@@ -32,8 +32,7 @@ export default defineComponent({
       return Civilizations.getOptional(this.name as CivilizationName)
     },
     civilizationImageUrl() : string {
-      const images = require.context('@/assets/civilization', false, /\.png$/)
-      return images('./' + this.name + '.png')
+      return new URL(`/src/assets/civilization/${this.name}.png`, import.meta.url).toString()
     }
   }
 })
