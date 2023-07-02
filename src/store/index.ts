@@ -7,8 +7,9 @@ import Expansion from '@/services/enum/Expansion'
 import CardName from '@/services/enum/CardName'
 import toggleArrayItem from 'brdgm-commons/src/util/array/toggleArrayItem'
 import Action from '@/services/enum/Action'
+import { name } from '@/../package.json'
 
-const LOCALSTORAGE_KEY = process.env.VUE_APP_LOCALSTORAGE_KEY_PREFIX + "store"
+const LOCALSTORAGE_KEY = `${name}.store`
 
 export interface State {
   language: string
