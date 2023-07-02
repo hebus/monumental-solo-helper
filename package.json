@@ -1,6 +1,6 @@
 {
   "name": "@brdgm/monumental-solo-helper",
-  "version": "1.1.9",
+  "version": "1.1.10",
   "private": true,
   "description": "Monumental Solo Helper",
   "appDeployName": "monumental",
