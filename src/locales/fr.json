@@ -1,0 +1,172 @@
+{
+  "gameTitle": "Monumental",
+  "home": {
+    "title": "Monumental Solo Helper",
+    "play1": "Play the <b>Automa Module</b> of <a href='https://boardgamegeek.com/boardgame/248125/monumental' target='_blank' rel='noopener'><b>Monumental</b></a>.",
+    "play2": "To play the Automa module you only need the base game, this helper application replaces the solo cards. You can play against up to 4 bots.",
+    "play3": "The expansion <b>Lost Kingdoms</b> is also supported.",
+    "feedback": "Discussion and Feedback:"
+  },
+  "setup": {
+    "title": "Mise en place",
+    "selectExpansion": {
+      "title": "Sélectionnez une Extension",
+      "coreBox": "Core Box",
+      "lostKingdoms": "Lost Kingdoms",
+      "africanEmpires": "African Empires"
+    },
+    "difficultyLevel": {
+      "title": "Niveau de difficulté",
+      "easy": "Facile",
+      "hard": "Difficile",
+      "useCards": "Use no advanced action cards | Use 1 advanced action card | Use {count} advanced action cards",
+      "infoModules": "You can add the hero or monster module to make the game easier for human players. The bots cannot benefit from them."
+    },
+    "civilization": {
+      "numberPlayers": "Nombre de joueurs Total",
+      "numberHumanPlayers": "Nombre de joueurs Humain",
+      "playerCiv": "Player Civilization | Player #{number} Civilization",
+      "botCiv": "Bot Civilization | Bot #{number} Civilization",
+      "select": "(choisir)",
+      "selectDifferentWarning": "Veuillez choisir {count} civilisations différentes.",
+      "botMaterial": {
+        "title": "Prepare material for bot | Prepare material for bots",
+        "info1": "Place all units into the bot's city. | Place all units into each bot's city.",
+        "info2": "This application will manage the <b>gold</b>, <b>cultural policies</b> and the <b>Automa card deck</b> of the bots."
+      }
+    }
+  },
+  "roundPlayer": {
+    "title": "Joueur | Joueur #{player}",
+    "info": "Jouez votre tour."
+  },
+  "roundBot": {
+    "title": "Bot | Bot #{bot}",
+    "automaCard": "Carte Automa",
+    "automaCardAdvanced": "Carte Automa Avancée",
+    "culturalPolicies": "Politiques Culturelles",
+    "goldCost": "Coût en Or: {number}.",
+    "nexus": "Nexus",
+    "action": {
+      "complete": "Fait",
+      "notPossible": "Impossible",
+      "choose": "Choisir"
+    }
+  },
+  "notfound": {
+    "title": "Not Found"
+  },
+  "civilization": {
+    "aksum": "Aksum",
+    "amazons": "Amazones",
+    "atlantis": "Atlantis",
+    "aztecs": "Aztecs",
+    "china": "Chinoise",
+    "denmark": "Danoise",
+    "egypt": "Egyptienne",
+    "greece": "Grêque",
+    "japan": "Japonaise",
+    "mali": "Mail",
+    "mughals": "Mughals",
+    "zulu": "Zulu"
+  },
+  "civilizationType": {
+    "aggressive": "Aggressive",
+    "architectural": "Architectural",
+    "cultural": "Culturelle",
+    "economic": "Economique",
+    "technological": "Technologique"
+  },
+  "cardAction": {
+    "wonder-complete-acquire-lowest-cost": "Complétez 1 <b>Merveille</b>, ou prenez la Merveille la <i>moins</i> chère.",
+    "building-lowest-cost": "Prenez le <b>Bâtiment</b> le <i>moins</i> cher.",
+    "building-highest-cost": "Prenez le <b>Bâtiment</b> le <i>plus</i> cher.",
+    "develop-1-cultural-policy": "Développez 1 <strong>Politque Culturelle</strong>.",
+    "develop-1-cultural-policy-2-gold-per-policy": "Développez 1 <strong>Politique Culturelle</strong>, et gagnez 2 Or pour chaque Politique Culturelle.",
+    "explorers-both-move-1-space": "<b>Déplacez les 2 explorateurs</b> de <i>1 Province</i> chacun, Récupérez au passage les jetons Production et Marché.",
+    "explorers-both-move-2-space": "<b>Déplacez les 2 explorateurs</b> de <i>2 Provinces</i> chacun, Récupérez au passage les jetons Production et Marché.",
+    "explorers-both-move-3-space": "<b>Déplacez les 2 explorateurs</b> de <i>3 Provinces</i> chacun, Récupérez au passage les jetons Production et Marché.",
+    "knowledge-take-lowest-cost": "Prenez la <b>carte Connaissance</b> la <i>moins</i> chère.",
+    "knowledge-take-highest-cost": "Prenez la <b>carte Connaissance</b> la <i>plus</i> chère.",
+    "knowledge-take-all": "Prenez <b>toutes les cartes Connaissance disponibles</b>.",
+    "gain-3-gold": "Gagnez <b>3 Or</b>.",
+    "conquer-1-adjacent-lowest-cost": "<b>Conquérez</b> la Province adjacente la <i>moins</i> chère.",
+    "conquer-1-adjacent-highest-cost": "<b>Conquérez</b> la Province adjacente la <i>plus</i> chère.",
+    "conquer-3-adjacent-highest-cost": "<b>Conquérez les 3</b> Provinces adjacente les <i>plus</i> chères.",
+    "shuffle-cards": "Mélangez la défausse de l'Automa dans sa pioche.",
+    "draw-card": "<b>Piochez</b> une nouvelle carte.",
+    "choose-action": "<b>Sélectionnez une Action</b>.",
+    "amazon-gain-mount-2-horses": "Gain <b>2 horses</b> and mount 2 Units on the map (furthest from your capital). Mounted units have +1 Defense.",
+    "atlantis-nexus-place-next-use-all": "Place the next card in the Automa's deck in the <b>Nexus</b>. Then use <i>all cards</i> in the Nexus.",
+    "aztecs-sacrifice-get-gold": "<b>Sacrifice</b> 1 Unit from the Automa's capital to gain 4 Gold. If this is not possible, return 1 sacrificed Soldier to the Capital.",
+    "china-draw-until_technological-action": "<b>Piochez des cartes</b> jusqu'à atteindre une carte avec une <i>action Technologique</i>, et utilisez-la.",
+    "denmark-coastal-provinces-gold": "<b>Gagnez 1 Or</b> pour chaque <i>Province côtière</i> contrôlée par l'Automa.",
+    "egypt-draw-card-twice-action-non-special": "Piochez une autre carte. Effectuez ses actions non spécialisées deux fois de suite.",
+    "greece-draw-card-get-action-special": "Piochez une nouvelle carte. Gagnez son avantage spécialisé, que que soit son type.",
+    "mughals-draw-next-remove-non-economic": "<b>Reveal</b> the next card of the Automa's deck. If it is <i>not an Economic</i> action, remove it from the game."
+  },
+  "chooseAction": {
+    "japan-civilization": {
+      "1": "Si l'Automa contrôle moins de Provinces qu'un adversaire:",
+      "2": "Si l'Automa a le moins de Politiques Culturelles:",
+      "3": "Si rien de tout ceci n'arrive:"
+    }
+  },
+  "actionHelp": {
+    "gainDevelopmentCard": {
+      "title": "Gain Development Card",
+      "text": "<p>If Automa gains a card from the Development display, it is placed face up in their play area. The effects of this card never activate, and the card is only considered for scoring.</p><p>If there is ever a choice of which card to gain, the one furthest from the Development deck is chosen. If both cards are an equal distance from the deck, the one whose name begins with the letter closest to the beginning of the alphabet is chosen.</p>"
+    },
+    "buildWonder": {
+      "title": "Build Wonder",
+      "text": "<p>If Automa completes or acquires a new wonder, it always completes a wonder under construction first. When Automa acquires a new wonder, it chooses the one with the <b>lowest cost</b>. Take the Wonder card and place a Wonder Construction token on the first stage.</p><p>When built, the Wonder token is placed on any one of Automa’s available provinces. If there is ever a choice between Provinces, the one with the <b>lowest terrain value</b> is chosen. If there is still a choice, the player to the right of Automa chooses on which one of the Automa’s provinces the token is placed.</p><p>If Automa controls no Provinces or already has Wonders in all of their Provinces, place the Wonder token on Automa’s Capital.</p><p>If there is ever a choice of which card to gain, the one furthest from the Development deck is chosen. If both cards are an equal distance from the deck, the one whose name begins with the letter closest to the beginning of the alphabet is chosen.</p>"
+    },
+    "conquerProvince": {
+      "title": "Conquer Province",
+      "text": "<p>If Automa conquers a Province, take its <b>Warlord</b> from its current location and <b><i>one</i> Soldier</b> from its Capital and place them both on the conquered province. If Automa has no Soldiers left in its Capital, take and place an Outpost instead. If there are no Soldiers or Outposts in its Capital, then Automa cannot conquer more provinces.</p><p>If there is ever a choice of which Province to conquer, the one with the <b>lowest terrain value</b> is chosen. If there is still a choice, the player to the right of Automa chooses which province Automa conquers.</p><p>If the province has a Barbarian token, reveal it, giving Automa the Gold value printed on it, and then place the token in Automa’s play area. Do the same for Free Town tokens, except Automa gains 2 Gold instead of 1 Culture.</p>"
+    },
+    "moveExplorers": {
+      "title": "Move both Explorers",
+      "text": "<p>The first Explorer moves to an adjacent Province in a direction towards the <b>nearest Market</b> whose token Automa doesn’t already have, and the second Explorer moves to an adjacent Province in a direction towards the <b>second closest</b>. If there are two equally valid choices, the province with a Production token is chosen. If there is still a choice, the player to the right of Automa chooses between the valid Provinces.</p><p>If the province has a Production token, Automa claims this token. Whenever it has 2 Production tokens, these are discarded to gain one Gold. If the Province has a Market, Automa claims the top token, revealing it and gaining Gold equal to the number of resources on the token. For example, if the token shows 4 Military, Automa gains 4 Gold.</p><p>Whenever Automa has a Market token from all Markets on the board, immediately discard all of Automa’s Market tokens, and return both Explorers to their Capital. They may move and collect Market tokens from all Markets again.</p>"
+    }
+  },
+  "gold": {
+    "value": "Or",
+    "earned": "Or gagné"
+  },
+  "scoring": {
+    "playedRounds": "Nb de Tours: {count}",
+    "knowledgeCards": "Cartes Connaissance",
+    "wonderCards": "Cartes Merveille",
+    "culturalPolicies": "Politiques Culturelles développées",
+    "provinces": "Provinces contrôlées",
+    "monster": "Monstre (seulement pour les joueurs)",
+    "gold": "Or / 3 (seulement pour les Bots)",
+    "total": "Total PV"
+  },
+  "action": {
+    "playGame": "Jouer une partie",
+    "startGame": "Débuter la partie",
+    "next": "Suivant",
+    "abortGame": "Annuler la partie",
+    "abortGameConfirm": "Annuler la partie en cours - êtes-vous sûr ?",
+    "finishGame": "Terminer la partie",
+    "finishGameConfirm": "Terminer la partie et voir les scores - êtes-vous sûr ?",
+    "endGame": "Fin de la partie",
+    "endGameConfirm": "Fin de la partie et retour à l'Accueil - êtes-vous sûr ?",
+    "roundResetTurn": "Réinitialisez le Tour",
+    "roundResetTurnConfirm": "Cela va réinitialiser le Tour en cours - et tous les Tours suivants. Êtes-vous sûr ?",
+    "cancel": "Annuler",
+    "backToHome": "Retour à l'Accueil",
+    "back": "Retour",
+    "close": "Fermer",
+    "selectCivilization": "Sélectionnez une Civilisation"
+  },
+  "footer": {
+    "credits": "Crédits"
+  },
+  "serviceWorkerUpdatedRefresh": {
+    "title": "Rafraîchir l'Application",
+    "notice": "The application was updated - do you want to refresh to use the latest version?"
+  }
+}
